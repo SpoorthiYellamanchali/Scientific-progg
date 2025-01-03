@@ -1,5 +1,7 @@
 import ctypes
 import matplotlib.pyplot as plt
+import numpy as np
+
 # lib stores the shared object file of the c code
 lib = ctypes.CDLL('./9.5.13.so')
 
@@ -13,18 +15,26 @@ xcoords = list()
 ycoords = list()
 
 # even indices contain x coordinates and odd indices contain y coordinates , therefore, storing the coordinates in two lists accordingly.
-for i in range(0,1998,2):
+for i in range(0,1999,2):
         xcoords.append(result[i])
         ycoords.append(result[i+1])
 
-# plotting all the points
-plt.plot(xcoords,ycoords)
+#plotting the theoretical(actual) graph of the function.
+def function(x):
+   return np.arctan(1/(np.log(x) + 1))*x # as cot^{-1}(y) = arctan(1/y)
+
+#Generating y coordinates for the theoretical plot
+y = function(xcoords)
+
+# plotting both the graphs
+plt.plot(xcoords,ycoords,label="simulated plot",color='r',linewidth = 10) # plotting simulated graph
+plt.plot(xcoords,y,label="theoretical plot",color='k',linestyle = "--" ,linewidth = 7) #  plotting theoretical graph
 
 #labelling the two perpendicular axes
 plt.xlabel('X')
 plt.ylabel('Y')
-plt.title('graph of the function')
-
+plt.title('theoretical plot vs simulated plot')
+plt.legend()
 # To get a grid
 plt.grid(True)
 plt.show()

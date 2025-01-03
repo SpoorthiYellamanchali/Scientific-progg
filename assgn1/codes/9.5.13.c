@@ -20,7 +20,7 @@ double *coords(){
 		}
 		else{
 			points[i]=points[i-2]+h;// X_n = X_(n-1)+h 
-			points[i+1]=points[i-1] + h*(points[i-1]/points[i-2] + sin((points[i-1]/points[i-2])*(points[i-1]/points[i-2])));// Y_n = Y_n-1 + h*(dy/dx)
+			points[i+1]=points[i-1] + h*(points[i-1]/points[i-2] - sin(points[i-1]/points[i-2])*sin(points[i-1]/points[i-2]));// Y_n = Y_n-1 + h*(dy/dx)
 		}
 	}
 	// returning the array
