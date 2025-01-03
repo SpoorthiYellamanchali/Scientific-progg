@@ -27,13 +27,12 @@ def function(x):
 y = function(xcoords)
 
 # plotting both the graphs
-plt.plot(xcoords,ycoords,label="simulated plot",color='r',linewidth = 10) # plotting simulated graph
-plt.plot(xcoords,y,label="theoretical plot",color='k',linestyle = "--" ,linewidth = 7) #  plotting theoretical graph
+plt.plot(xcoords,ycoords,label="sim",color='r',linewidth = 10) # plotting simulated graph
+plt.plot(xcoords,y,label="theory",color='k',linestyle = "--" ,linewidth = 7) #  plotting theoretical graph
 
 #labelling the two perpendicular axes
 plt.xlabel('X')
 plt.ylabel('Y')
-plt.title('theoretical plot vs simulated plot')
 plt.legend()
 # To get a grid
 plt.grid(True)
