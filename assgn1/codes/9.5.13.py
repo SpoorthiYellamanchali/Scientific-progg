@@ -24,10 +24,7 @@ def function(x):
    return np.arctan(1/(np.log(x) + 1))*x # as cot^{-1}(y) = arctan(1/y)
 
 #Generating y coordinates for the theoretical plot
-y = function(xcoords)
-
-# plotting both the graphs
-plt.plot(xcoords,ycoords,label="sim",color='r',linewidth = 10) # plotting simulated graph
+y = function(xcoords)plot(xcoords,ycoords,label="sim",color='r',linewidth = 10) # plotting simulated graph
 plt.plot(xcoords,y,label="theory",color='k',linestyle = "--" ,linewidth = 7) #  plotting theoretical graph
 
 #labelling the two perpendicular axes
