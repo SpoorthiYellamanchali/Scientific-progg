@@ -61,7 +61,7 @@
 
 \textbf{Question:}
 \\
-Find two positive numbers $x$ and $y$ such that $x + y$ = 60 and $xy^3$ is maximum.
+Find two positive numbers $x$ and $y$ such that $x + y$ = 60 and $xy^3$ is maximum.\\
 \\
 \textbf{ Theoretical Solution: }
 \\
@@ -90,6 +90,7 @@ On substituting $x = 15$, we get ,
 \end{align}
 that means, $xy^3$ is maximum when $x = 15$, then , $y = 60 - 15=45$\\
 $\therefore$ $xy^3$ is maximum when $x = 15$ and $ y = 45$.\\
+\\ 
 \textbf{Solution using gradient descent method.}
 \\
 The gradient descent(in case of finding minima) or the gradient ascent method(in case of finding maxima) is a computational algorithm which optimizes and maximises/minimizes the functional curve.\\
@@ -118,8 +119,95 @@ and by taking,
 And convergence = $1e-6$\\
 initial guess $x_0$ = 14.0,
 We get,\\
-$x$ value at maxima =  14.999878397267214\\
-$y$ value at maxima =  1366874.999940112\\
+x value at maxima =  14.999878397267214\\
+y value at maxima =  45.00012160273279 \\ 
+ \textbf{Solution using geometric programming:}\\
+Geometric programming is a type of mathematical optimization that is used for problems where the objective and constraints can be expressed as posynomials or monomials.\\
+\\ A monomial is a product of variables raised to constant powers. A monomial is of the form:
+${x_1}^{a_1}{x_2}^{a_2}{x_3}^{a_3}.....{x_n}^{a_n}$\\
+where $x_1,x_2,x_3.....x_n$ are the variables and $a_1,a_2,a_3....a_n$ are the real constant powers(can be positive or negative or zero.)\\
+
+ posynomial is a sum of monomials, where each monomial in the sum has non-negative coefficients. A posynomial is of the form:
+ \begin{align}
+     f\brak{x_1,x_2,x_3...,x_n} = c_1{x_1}^{a_{11}}{x_2}^{a_{12}}...{x_n}^{a_{1n}} + c_2{x_1}^{a_{21}}{x_2}^{a_{22}}....{x_n}^{a_{2n}} + .....+ c_n{x_1}^{a_{n1}}{x_2}^{a_{n2}}...{x_n}^{a_{nn}}
+ \end{align}
+ Where $c_i\geq 0$ (non-negative constants)\\
+ The equation above is the expression of the objective function which we wish to maximise or minimise.\\
+ \\ The constraints of the problem are typically posynomials, and they are usually represented as:
+ \begin{align}
+     g_i\brak{x_1,x_2,x_3....x_n} \leq 0 ; i = 1,2,3...m.
+ \end{align}
+ $g_i\brak{x_1,x_2,x_3....x_n}$ is a posynomial.\\
+Maximization of a Posynomial Objective Function:
+\begin{align}
+    f\brak{x_1,x_2,x_3...,x_n} = \sum c_ix_1^{a_{i1}}x_2^{a_{i2}}...{x_n}^{in}
+\end{align}
+Subject to constraints of the form:
+\begin{align}
+    g_i\brak{x_1,x_2,x_3....x_n} \leq 0;\ i = 1,2,3...,m
+\end{align}
+The objective function in our problem is
+\begin{align}
+    f\brak{x,y} = xy^3
+\end{align}
+To apply Geometric Programming, we take the logarithm of both the objective function and the constraint.\\
+This step simplifies the problem and makes it easier to handle by converting products into sums.\\
+For the objective $f\brak{x,y} = xy^3$, we take the natural logarithm:\\
+\begin{align}
+    \ln{xy^3} = \ln{x} + 3\ln{y}
+\end{align}
+
+The constraint is $x + y = 60$.\\
+Taking logarithm of this constraint directly is not meaningful, as it is a sum , not a product.\\
+we will simply proceed with it as it is since it's already linear and suitable for GP.\\
+In order to combine objective and constraint we use lagrange multipliers\\
+Lagrangian combines the objective function and the constraint by introducing a Lagrange multiplier $\lambda$ for the constraint.\\
+Lagrangian for an objective function $f\brak{x,y}$ and constraint $g\brak{x,y}$ is given by:
+\begin{align}
+    L\brak{x,y,\lambda} = f\brak{x,y} + \lambda\brak{g\brak{x,y}}
+\end{align}
+we can take our objective function to be $\ln{x} + 3\ln{y}$ as , since $ln$ is an increasing function, $\ln{xy^3}$ is maximized whenever $xy^3$ is maximized.
+$\therefore$ On applying lagrangian for equation $\brak{d}$ and $\brak{a}$, we get,
+\begin{align}
+    L\brak{x,y,\lambda} = \ln{x} + 3\ln{y} + \lambda\brak{x - y - 60}
+\end{align}
+To find the optimal solution, we take the partial derivatives of the Lagrangian with respect to $x$, $y$, and $\lambda$, and set them equal to zero.\\
+
+On partially derivating equation $\brak{a}$ with respect to $x$:
+\begin{align}
+    \frac{\partial L}{\partial x} = \frac{1}{x} - \lambda = 0\\
+    \lambda = \frac{1}{x}
+\end{align}
+On partially derivating equation $\brak{a}$ with respect to $y$:
+\begin{align}
+    \frac{\partial L}{\partial y} = \frac{3}{y} - \lambda\\
+    \lambda = \frac{3}{y}
+\end{align}
+On partially derivating equation $\brak{a}$ with respect to $\lambda$:
+\begin{align}
+    \frac{\partial L}{\partial \lambda} = 60 - x + y = 0\\
+    x + y = 60
+\end{align}
+From the first two equations, we can equate $\lambda$:
+\begin{align}
+    \frac{1}{x} = \frac{3}{y}
+\end{align}
+Solving for $y$ in terms of $x$, we get:
+\begin{align}
+    y = 3x
+\end{align}
+
+Now substitute $y = 3x$ into the constraint $x + y =60$ , then , we get,
+\begin{align}
+    x + 3x = 60\\
+    x = 15\\
+    y = 45
+\end{align}
+$\therefore$ $x = 15$ and $y = 45$ at maxima.
+On solving for values of $x$ and $y$ using a python function , we get\\
+value for $x$ using geometric programming 14.99878409289183\\
+value for $y$ using geometric programming 45.00121536318684.\\
+Due to floating-point rounding errors, the computed solution will be an approximation, leading to slight deviations.
 
 \begin{figure}[h!]
    \centering
