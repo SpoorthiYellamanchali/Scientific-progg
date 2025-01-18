@@ -175,7 +175,64 @@ And the root of the equation $x_0$ would become,
 \end{align}
 In our question , on assuming the initial interval to be $\sbrak{10,20}$ and tolerance is $1e-6$,
 we get the root of the equation approximately to be 17.999954223632812\\
-$\therefore$ the lengths of sides of squares by bisection method are\\ 17.999954223632812 and 11.999954223632812.
+$\therefore$ the lengths of sides of squares by bisection method are\\ 17.999954223632812 and 11.999954223632812.\\
+\textbf{solution by eigen value method}
+\\
+If the given polynomial is 
+\begin{align}
+    P\brak{x} = c_0 + c_1x + c_2x^2 +..... c_{n-1}x^{n-1} + x^n
+\end{align}
+Then the companion matrix is given by
+\begin{align}
+    M = \begin{pmatrix}
+        0 & 0 &....& 0 & -c_0\\
+        1 & 0 & ...& 0 & -c_1\\
+        0 & 1 &....& 0 & -c_2\\
+        : & : & : & : &  :\\
+        : & :& : & :&:\\
+        :&:&:&:&:\\
+        0&0&..&1& -c_{n-1}  
+    \end{pmatrix}
+\end{align}
+And the roots of the polynomial can be found by finding the eigen values of the companion matrix.\\
+For our question,
+\begin{align}
+    f\brak{x} = x^2 - 6x - 216
+\end{align}
+companion matrix is
+\begin{align}
+    M = \begin{pmatrix}
+        0&216\\
+        1&6
+    \end{pmatrix}
+\end{align}
+The roots of the equation are the eigen values of the companion matrix.\\
+We can find the eigen values by $QR$ decomposition algorithm.\\
+The $QR$ algorithm is a well-known iterative procedure to compute the eigenvalues of a square matrix.\\
+It decomposes a matrix $A$ into an orthogonal matrix $Q$ and an upper triangular matrix $R$ using the $QR$ decomposition and then iteratively updates the matrix by multiplying $R$ and $Q$.\\
+The process continues until the matrix converges to an upper triangular form, whose diagonal elements are the eigenvalues of the matrix.\\
+We start with an initial matrix $A_0 = A$, where $A$ is the matrix for which we need find the eigen values.
+we take , 
+\begin{align}
+    A_k = Q_kR_k\\
+\end{align}
+$Q_k$ is an orthogonal matrix .\\
+$R_k$ is an upper triangular matrix.\\
+Then,next,we take
+\begin{align}
+    A_{k+1} = R_kQ_k
+\end{align}
+This new matrix $A_{k+1}$ is computed by multiplying $R_k$(from the QR decomposition) by $Q_k$.
+After a sufficient number of iterations, the matrix $A_k$ will converge to an upper triangular matrix.\\
+This means that the off-diagonal elements will become very small or zero, and the matrix will be nearly diagonal.\\
+At this point, the eigenvalues of the matrix are located on the diagonal of the converged matrix $A_k$.\\
+For our question, on taking $A_0 = M$, and applying the algorithm, we get eigen values
+\begin{align}
+    \lambda_1 = 18\\
+    \lambda_2 = -12
+\end{align}
+as length of the square can not be a negative value,
+the length of squares are 18 and 12 respectively.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=1\columnwidth]{figures/Figure_1.png}

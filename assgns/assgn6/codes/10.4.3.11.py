@@ -12,6 +12,7 @@ rootn = lib.newton()
 rootb= lib.bisection()
 yn = rootn*rootn - 6*rootn - 216;
 yb = rootb*rootb - 6*rootb - 216;
+
 xcoords = list()
 ycoords = list()
 for i in range(0,999,2):
@@ -25,7 +26,6 @@ plt.plot(xcoords,ycoords,color='r',label="functional curve",linewidth = 5)
 
 print("value of sides of squares by newton raphson method are:", rootn,"and",rootn - 6)
 print("value of sides of squares by bisection method are:", rootb,"and",rootb - 6)
-
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.legend()
