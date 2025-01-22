@@ -84,6 +84,17 @@ $\therefore$ we get, $x = 13$ and $y = 39$
 \\
 \textbf{Solution by LU decomposition.}
 \\
+Given a matrix $A$ of size $n\times n$,$LU$ decomposition is performed row by row ,column by column.
+We start ny initializing $L$ as identity matrix of same order $L = I_n$,and $U$ as $A$.\\
+The update equations are as follows,\\
+For each column $j \geq k$, the entries of $U$ in the $k$th row are updated as:
+\begin{align}
+    U_{k,j} = A_{k,j} - \sum_{m=1}^{k-1} L_{k,m}.U_{m,j},   \forall{j \geq k}
+\end{align}
+For each row $i > k$, the entries of $L$ in the $k$th column are updated as:
+\begin{align}
+    L_{j,k} = \frac{1}{U_{k,k}}\brak{A_{j,k} - \sum_{m=1}^{k-1}.U_{m,k}}, \forall{i>k}
+\end{align}
  given equations:
  \begin{align}
      x - y = 26\\
@@ -144,7 +155,7 @@ So , on updating the position (2,1) in the matrix $L$ with the multiplier, we ge
         1&1
     \end{bmatrix}
 \end{align}
-Now,equation $\brak{0.8}$ can be written as,
+Now,equation $\brak{0.14}$ can be written as,
 \begin{align}
     LU\Bar{x} = b
 \end{align}
@@ -163,7 +174,7 @@ On solving using forward substitution, we get ,
         -26
     \end{bmatrix}
 \end{align}
-Now, from equation $\brak{0.19}$, on solving for $\Bar{x}$ using backward substitution, we get,
+Now, from equation $\brak{0.21}$, on solving for $\Bar{x}$ using backward substitution, we get,
 \begin{align}
     \Bar{x} = \begin{bmatrix}
         39\\
