@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.6)  22 JAN 2025 17:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.6)  23 JAN 2025 21:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**3.3.3.1.tex
+**3.3.3.1
 (./3.3.3.1.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1908,7 +1908,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <figs/Figure_1.png, id=70, 462.528pt x 346.896pt>
 File: figs/Figure_1.png Graphic file (type png)
 <use figs/Figure_1.png>
-Package pdftex.def Info: figs/Figure_1.png  used on input line 192.
+Package pdftex.def Info: figs/Figure_1.png  used on input line 191.
 (pdftex.def)             Requested size: 273.14647pt x 204.868pt.
 
 [3 <./figs/Figure_1.png>] (./3.3.3.1.aux)
@@ -1920,13 +1920,13 @@ Package rerunfilecheck Info: File `3.3.3.1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 52970 strings out of 474222
- 1254875 string characters out of 4498733
+ 52972 strings out of 474222
+ 1254882 string characters out of 4498733
  3922975 words of memory out of 10000000
  74385 multiletter control sequences out of 15000+600000
  623283 words of font info for 169 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,13n,109p,1197b,903s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,13n,109p,1193b,903s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/te
@@ -1934,7 +1934,7 @@ xmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 3.3.3.1.pdf (3 pages, 84364 bytes).
+Output written on 3.3.3.1.pdf (3 pages, 83863 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  85 compressed objects within 1 object stream
